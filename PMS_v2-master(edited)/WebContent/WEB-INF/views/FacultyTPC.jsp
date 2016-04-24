@@ -55,7 +55,7 @@
 	<button>View Allotment List </button>
 	</a></h2> -->
 	<table>
-	<tr>
+		<tr>
 			<td><a href="AssignTPCF.html">Assign TPC</a></td>
 		</tr>
 		<tr>
@@ -70,6 +70,12 @@
 		</tr>
 		<tr>
 			<td><a href="sendMail">Click here to send an email</a></td>
+		</tr>
+		<tr>
+			<td><a href="addAllotment">Add Room Allotment</a></td>
+		</tr>
+		<tr>
+			<td><a href="viewAllotment">View Room Allotment</a></td>
 		</tr>
 		<tr>
 			<td><a href="form">Logout</a></td>

@@ -10,3 +10,7 @@ LoginController, UserDetailsBean, Student.jsp
 UpdateProfileController, ProfileDAO , ProfileDAOImpl , ProfileService , ProfileServiceImpl
 viewprofile.jsp , models : ProfessionalProfile, PersonalProfile , beans : ProfessionalProfileBean
 , PersonalProfileBean , 
+
+
+
+####new module added : job and room_allotment

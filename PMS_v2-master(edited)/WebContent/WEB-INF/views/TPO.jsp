@@ -61,6 +61,13 @@
 			<td><a href="searchHome">Click here to search for something</a></td>
 		</tr>
 		<tr>
+			<td><a href="addProfile">Add JOB POST</a></td>
+		</tr>
+		<tr>
+			<td><a href="viewProfile">View JOB POSTS</a></td>
+		</tr>
+		
+		<tr>
 			<td><a href="sendMail">Click here to send an email</a></td>
 		</tr>
 		<tr>
