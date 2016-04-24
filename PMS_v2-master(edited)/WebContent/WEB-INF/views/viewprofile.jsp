@@ -15,7 +15,7 @@ User name:${userDetails.userName}<br>
 PERSONAL DETAILS:<BR>
 
 
-<form action="update-personal" method="post">
+<form action="update" method="post">
 
 
 GENDER:<BR>
@@ -40,12 +40,9 @@ PERMANENT ADDRESS:<BR>
 <input name="permanentAddress" type="text" value="${personalProfile.permanentAddress}"/><BR>
 <BR>
 
-<input type="submit" value="Submit"/>
 
-</form>
 <BR><BR><BR>
 
-<form action="update-professional" method="post">
 
 PROFESSIONAL DETAILS:<BR>
 
