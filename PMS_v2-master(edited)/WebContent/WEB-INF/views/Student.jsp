@@ -16,16 +16,58 @@
 <body onload="noBack();" onpageshow="if (event.persisted) noBack();"
 	onunload="">
 	<h3>Welcome To the STUDENT page !!!!!</h3>
+	
 	<h2>
 		Logged in as
-		<core:out value="${loginForm.userName}" />
+		<core:out value="${userDetails.userName}" />
 	</h2>
 	<br />
+	<p>
+	BRANCH:${professionalProfile.branch}
+	<br><BR>
+	GENDER:<BR>
+	${personalProfile.gender}<BR><BR>
+	DATE OF BIRTH:<BR>
+	${personalProfile.dob}<BR>
+	<BR><BR>
+	EMAIL : ${personalProfile.emailId}
+	<br><BR>
+	MOBILE CONTACT:<BR>
+	${personalProfile.mobileNo}<BR><BR>
+	CORRESPONDENCE ADDRESS:<BR>
+	${personalProfile.correspondenceAddress}<br><BR>
+	
+	PERMANENT ADDRESS:<BR>
+	${personalProfile.permanentAddress}<br><BR>
+	
+
+	YEAR OF PASSING: ${professionalProfile.year}
+	<BR><BR>
+	PLACEMENT STATUS:<BR>
+	${professionalProfile.status}<BR><BR>
+	FIELDS OF INTEREST:<br>
+	${professionalProfile.fieldOfInterest}<br><BR>
+	ACHIEVEMENTS:<br>
+	${professionalProfile.achievements}<br><BR>
+	PROJECTS:<br>
+	${professionalProfile.projects}<br><BR>
+	INTERNSHIPS:<br>
+	${professionalProfile.internships}<br><BR>
+	CO-CURRICULAR ACTIVITIES:<br>
+	${professionalProfile.coCurricularActivities}<br><BR>	
+	EXTRA CURRICULAR ACTIVITIES:<br>
+	${professionalProfile.extraCurricularActivities}<br><BR>
+	
+	</p>
+	<br>
 	<c:if test="${b==true }">
 		<p>You have been selected for conselling round</p>
 	</c:if>
 	<br />
 	<table>
+		<tr>
+			<td><a href="edit">Click here to edit your profile</a></td>
+		</tr>
 		<tr>
 			<td><a href="resumeUpload">Click here to upload Resume</a></td>
 		</tr>

@@ -1,22 +1,5 @@
 package org.crce.interns.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.validation.BindingResult;
-import org.crce.interns.beans.LoginForm;
-import org.crce.interns.beans.NotifyForm;
-import org.crce.interns.service.*;
-import org.hibernate.Session;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-
 import java.util.Map;
 
 import javax.servlet.http.HttpServlet;
@@ -25,6 +8,20 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.crce.interns.beans.LoginForm;
+import org.crce.interns.beans.NotifyForm;
+import org.crce.interns.beans.PersonalProfileBean;
+import org.crce.interns.beans.ProfessionalProfileBean;
+import org.crce.interns.beans.UserDetailsBean;
+import org.crce.interns.service.LoginService;
+import org.crce.interns.service.ProfileService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
 @Controller
 public class LoginController extends HttpServlet{
 
@@ -32,6 +29,8 @@ public class LoginController extends HttpServlet{
 	@Autowired
 	public LoginService loginService;
 	
+	@Autowired
+	private ProfileService profileService;
 	
 	@RequestMapping("/")
 	public ModelAndView welcome() {
@@ -68,18 +67,23 @@ public class LoginController extends HttpServlet{
 	
 		
 		if(role.equals("Student")){
-			model = new ModelAndView("Student");
+			
+			//model = new ModelAndView("Student");
+			
+			model = new ModelAndView("redirect:/viewprofile");
 			HttpSession session=request.getSession();
-			String name =  request.getParameter("userName");
-		    System.out.println("UserName: " + name); // Here it prints the username properly
+			String id =  request.getParameter("userName");
+		    System.out.println("UserName: " + id); // Here it prints the username properly
 		    
-		    request.getSession(true).setAttribute("userName", name );
-		     request.getSession(true).setAttribute("roleId", "1" );
+		    request.getSession(true).setAttribute("userName", id );
+		    request.getSession(true).setAttribute("roleId", "1" );
+		    
 		    // System.out.println(session.getAttribute("userName"));
-		    System.out.println("Logged in as what????: " + name);
+		    System.out.println("Logged in as what????: " + id);
 		    boolean b=loginService.getNotification(loginForm.getUserName());
 		    model.addObject("b", b);
-			return model;
+		    model.addObject("u", id);		    
+		    return model;
 		}
 		
 		else if(role.equals("FacultyTPC"))
