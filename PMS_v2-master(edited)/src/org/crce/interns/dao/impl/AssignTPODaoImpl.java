@@ -1,4 +1,3 @@
-
 package org.crce.interns.dao.impl;
 
 import java.util.List;
@@ -35,7 +34,7 @@ public class AssignTPODaoImpl implements AssignTPODao {
 		// TODO Auto-generated method stub
 	//return entityManager.createQuery("select u from UserDetails u", UserDetails.class).getResultList();
 		Session session = sessionFactory.openSession();
-		String SQL_QUERY = "from UserDetails as u";
+		String SQL_QUERY = "from UserDetails as u order by u.roleId";
 
 		Query query = session.createQuery(SQL_QUERY);
 		List<UserDetails> listUserDetails = query.list();
@@ -63,6 +62,5 @@ public class AssignTPODaoImpl implements AssignTPODao {
 		sessionFactory.getCurrentSession().update(user);
 		// entityManager.merge(user);
 	}
-
 
 }
